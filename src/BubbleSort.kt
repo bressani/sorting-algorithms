@@ -1,15 +1,15 @@
 fun main() {
     val array = intArrayOf(3, 2, 6, 0, 5, 20, 1, 4, 0, 0, 0, 0, 1, 1, 1, 25, 25, 25, 2, 1, 3)
 
-    sort(array)
+    bubbleSort(array)
 
     array.map { a -> print("${a}, ") }
 }
 
-fun sort(array: IntArray) {
+fun bubbleSort(array: IntArray) {
     do {
         var hasSwapped = false;
-        for (index in (array.indices)) {
+        for (index in array.indices) {
             if (index == (array.size - 1))
                 break
 
