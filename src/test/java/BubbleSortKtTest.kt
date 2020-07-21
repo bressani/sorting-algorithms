@@ -9,8 +9,8 @@ import java.util.stream.Stream
 class BubbleSortKtTest {
 
     @ParameterizedTest
-    @MethodSource("provide test arguments for swapWithNext")
-    fun `test swapWithNext`(expected: IntArray, array: IntArray, position: Int) {
+    @MethodSource("provide test arguments for swapWithNextIndex")
+    fun `test swapWithNextIndex`(expected: IntArray, array: IntArray, position: Int) {
         val actualSwappedArray = swapWithNextIndex(array, position)
 
         for (i in array.indices) {
@@ -18,7 +18,7 @@ class BubbleSortKtTest {
         }
     }
 
-    fun `provide test arguments for swapWithNext`(): Stream<Arguments> =
+    fun `provide test arguments for swapWithNextIndex`(): Stream<Arguments> =
         Stream.of(
             Arguments.of(intArrayOf(1, 2), intArrayOf(2, 1), 0),
             Arguments.of(intArrayOf(1, 2, 3, 5, 4), intArrayOf(1, 2, 3, 4, 5), 3),
