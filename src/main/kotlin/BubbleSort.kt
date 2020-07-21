@@ -3,11 +3,11 @@ fun main() {
 
     val sortedArray = bubbleSort(array)
 
-    sortedArray.map { a -> print("${a}, ") }
+    sortedArray.map { element -> print("${element}, ") }
 }
 
 fun bubbleSort(intArray: IntArray): IntArray {
-    val array = intArray.copyOf()
+    var array = intArray.copyOf()
 
     do {
         var hasSwapped = false
@@ -18,24 +18,27 @@ fun bubbleSort(intArray: IntArray): IntArray {
             val nextNumber: Int = array[index + 1]
 
             if (array[index] > nextNumber) {
-                swapWithNext(array, index)
+                array = swapWithNextIndex(array, index)
                 hasSwapped = true
             }
         }
 
-
     } while (hasSwapped)
 
     return array
-
 }
 
-fun swapWithNext(array: IntArray, currentPosition: Int) {
-    if (array.size - 2 < currentPosition) {
-        return
+fun swapWithNextIndex(intArray: IntArray, currentPosition: Int): IntArray {
+    val array = intArray.copyOf()
+
+    val minArraySizeToBeSwapped = array.size - 2
+    if (minArraySizeToBeSwapped < currentPosition) {
+        return array
     }
 
     val temp: Int = array[currentPosition]
     array[currentPosition] = array[currentPosition + 1]
     array[currentPosition + 1] = temp
+
+    return array
 }

@@ -11,10 +11,10 @@ class BubbleSortKtTest {
     @ParameterizedTest
     @MethodSource("provide test arguments for swapWithNext")
     fun `test swapWithNext`(expected: IntArray, array: IntArray, position: Int) {
-        swapWithNext(array, position)
+        val actualSwappedArray = swapWithNextIndex(array, position)
 
         for (i in array.indices) {
-            assertEquals(expected[i], array[i])
+            assertEquals(expected[i], actualSwappedArray[i])
         }
     }
 
