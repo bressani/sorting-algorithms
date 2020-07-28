@@ -3,30 +3,39 @@ fun main() {
 
     val sortedArray = selectionSort(array)
 
-    sortedArray.map { a -> print("${a}, ") }
+    sortedArray.map { element -> print("${element}, ") }
 }
 
-fun selectionSort(array: IntArray): IntArray {
+fun selectionSort(intArray: IntArray): IntArray {
+    var array = intArray.clone()
     var unsortedArrayStartIndex = 0
-    var currentMinNumberIndex = 0
+    var currentMinNumberIndex: Int
 
     do {
-
+        currentMinNumberIndex = unsortedArrayStartIndex
         for (i in unsortedArrayStartIndex until array.size) {
             if (array[i] <= array[currentMinNumberIndex]) {
                 currentMinNumberIndex = i
             }
         }
 
-        swap(array, currentMinNumberIndex, unsortedArrayStartIndex++)
+        array = swap(array, currentMinNumberIndex, unsortedArrayStartIndex++)
 
     } while (unsortedArrayStartIndex < array.size - 1)
 
     return array
 }
 
-fun swap(array: IntArray, currentMinNumberIndex: Int, unsortedArrayStartIndex: Int) {
-    val temp = array[unsortedArrayStartIndex]
-    array[unsortedArrayStartIndex] = array[currentMinNumberIndex]
-    array[currentMinNumberIndex] = temp
+fun swap(array: IntArray, currentMinNumberIndex: Int, unsortedArrayStartIndex: Int): IntArray {
+    val maxPositionNum = array.size - 1
+
+    if (currentMinNumberIndex > maxPositionNum || unsortedArrayStartIndex > maxPositionNum) return array
+
+    val swappedArray = array.clone()
+
+    val temp = swappedArray[unsortedArrayStartIndex]
+    swappedArray[unsortedArrayStartIndex] = swappedArray[currentMinNumberIndex]
+    swappedArray[currentMinNumberIndex] = temp
+
+    return swappedArray
 }
