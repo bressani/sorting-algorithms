@@ -19,14 +19,14 @@ fun selectionSort(intArray: IntArray): IntArray {
             }
         }
 
-        array = swap(array, currentMinNumberIndex, unsortedArrayStartIndex++)
+        array = selectionSwap(array, currentMinNumberIndex, unsortedArrayStartIndex++)
 
     } while (unsortedArrayStartIndex < array.size - 1)
 
     return array
 }
 
-fun swap(array: IntArray, currentMinNumberIndex: Int, unsortedArrayStartIndex: Int): IntArray {
+fun selectionSwap(array: IntArray, currentMinNumberIndex: Int, unsortedArrayStartIndex: Int): IntArray {
     val maxPositionNum = array.size - 1
 
     if (currentMinNumberIndex > maxPositionNum || unsortedArrayStartIndex > maxPositionNum) return array

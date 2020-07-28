@@ -11,7 +11,7 @@ class SelectionSortKtTest {
     @ParameterizedTest
     @MethodSource("provide test arguments for swap")
     fun `test swap`(expected: IntArray, actual: IntArray, position1: Int, position2: Int) {
-        val actualSwappedArray = swap(actual, position1, position2)
+        val actualSwappedArray = selectionSwap(actual, position1, position2)
 
         for (i in actual.indices) {
             assertEquals(expected[i], actualSwappedArray[i])
